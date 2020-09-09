@@ -66,12 +66,12 @@ def parseDump():
 def trainModel():
     # Build model
     model = Sequential()
-    model.add(Dense(8, activation='relu', input_shape=(len(vocabulary), )))
-    model.add(Dense(8, activation='relu'))
+    model.add(Dense(256, activation='relu', input_shape=(len(vocabulary), )))
+    model.add(Dense(256, activation='relu'))
     model.add(Dense(y_train.shape[1], activation='softmax'))
     # Train Model
     model.compile(loss='categorical_crossentropy', optimizer='RMSprop', metrics=['accuracy'])
-    model.fit(x_train, y_train, batch_size=8, epochs=500, verbose=1)
+    model.fit(x_train, y_train, batch_size=8, epochs=40, verbose=1)
     return model
 
 ignored = ['?']
